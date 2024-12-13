@@ -32,7 +32,7 @@
             <label for="pokemon">Pokemon: </label>
             <input type="text" id="pokemon-name" name="pokemon" placeholder="pokemon name" required />
         </div>
-        <button onclick="getPokemon()" type="submit">Search</button>
+        <button onclick="getPokemon(handlePokemonData)" type="submit">Search</button>
     </section>
 
     <div id="pokemon-container"></div>
@@ -45,30 +45,42 @@
 
             container.innerHTML = ""
 
-            const pokemon = (pokemon) => {
 
-                const pokemonDiv = document.createElement('div')
-                pokemonDiv.style.marginBottom = "20px"
 
-                const nameElement = document.createElement('h1')
-                nameElement.textContent = `Name: ${pokemon.name}`
-                pokemonDiv.appendChild(nameElement)
+            const pokemonDiv = document.createElement('div')
+            pokemonDiv.style.marginBottom = "20px"
+            pokemonDiv.style.marginTop = "20px"
+            pokemonDiv.style.display = "flex"
+            pokemonDiv.style.flexDirection = "column"
+            pokemonDiv.style.alignItems = "center"
+            pokemonDiv.style.justifyContent = "center"
 
-                const imageElement = document.createElement('img')
-                imageElement.src = pokemon.sprites.front_default
-                imageElement.alt = pokemon.name
-                imageElement.style.width = '200px'
-                pokemonDiv.appendChild(imageElement)
+            const nameElement = document.createElement('h1')
+            nameElement.textContent = `Name: ${data.name}`
+            pokemonDiv.appendChild(nameElement)
 
-                container.appendChild(pokemonDiv)
+            const typeElement = document.createElement('h1')
+            const typeNames = data.types.map(typeInfo => typeInfo.type.name).join(', ');
 
-            }
+            typeElement.textContent = `Type: ${typeNames}`
+            pokemonDiv.appendChild(typeElement)
+
+            const imageElement = document.createElement('img')
+            imageElement.src = data.sprites.front_default
+            imageElement.alt = data.name
+
+            imageElement.style.width = '200px'
+            pokemonDiv.appendChild(imageElement)
+
+            container.appendChild(pokemonDiv)
+
+
 
         }
 
         async function getPokemon(callback) {
             const pokemonNameOrId = document.getElementById('pokemon-name').value.trim().toLowerCase()
-            const url = "https://pokeapi.co/api/v2/pokemon/{pokemonNameOrId}/"
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}/`
             try {
                 const response = await fetch(url)
                 if (!response.ok) {
@@ -76,6 +88,7 @@
                 }
                 const json = await response.json()
                 console.log(json)
+                callback(json)
             } catch (error) {
                 console.error(error.message)
 
