@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='/static/css/base.css') }}"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
     />
   </head>
   <body>
@@ -17,10 +21,9 @@
     <nav>
       <h1>Travel Planner</h1>
       <ul>
-        <li><a>Home</a></li>
-        <li><a>Create Trip</a></li>
-        <li><a>Dashboards</a></li>
-        <li><a></a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Create Trip</a></li>
+        <li><a href="#">Dashboards</a></li>
       </ul>
     </nav>
 
@@ -31,7 +34,7 @@
     <!-- FOOTER -->
 
     <footer>
-      <p>&copy; 2024 Travel Planner</p>
+      <p>&copy; 2024 Travel Planner | All Rights Reserved</p>
     </footer>
   </body>
 </html>

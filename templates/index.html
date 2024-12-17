@@ -1,3 +1,27 @@
 {% extends "base.html" %} {% block title %}{% endblock %} {% block content %}
-<h1>Welcome to Travel Planner</h1>
+<main>
+  <!--Hero section-->
+  <section class="hero">
+    <h1>Welcome to Travel Planner</h1>
+    <p>Your Ultimate Tool to Plan Travel and Track Budgets</p>
+    <a href="#" class="btn">Plan Your Trip</a>
+  </section>
+
+  <!-- Saved trips section-->
+  <section class="saved-trips">
+    <h2>Your Trips</h2>
+    <div class="trips-container">
+      <!-- Loop over saved trips here -->
+      {% for trip in trips %}
+      <div class="trip-card">
+        <h3>{{ trip.title }}</h3>
+        <p>{{ trip.start_date }} - {{ trip.end_date }}</p>
+        <p>Budget: ${{ trip.budget }}</p>
+      </div>
+      {% else %}
+      <p>No trips yet. Start planning now!</p>
+      {% endfor %}
+    </div>
+  </section>
+</main>
 {% endblock %}

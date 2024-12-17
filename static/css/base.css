@@ -1,0 +1,52 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+
+/* NAVBAR STYLING */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav>ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+nav>ul>li {
+    padding: 5px;
+    text-decoration: none;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    list-style: none;
+}
+
+/* nav>ul>li>a:hover {
+}
+
+nav>ul>li>a:active {} */
+
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+footer>p {
+    text-align: center;
+}
