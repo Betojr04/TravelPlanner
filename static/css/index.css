@@ -1,0 +1,19 @@
+.hero {
+    height: 50vh;
+    background-image: url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHRyYXZlbHxlbnwwfDB8MHx8fDA%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.hero>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+}
+
+.hero>h1 {
+    padding-left: 1rem;
+}
