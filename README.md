@@ -1,8 +1,3 @@
-
-Got it, bro! Here's the full **README.md** file, ready to copy and paste:
-
----
-
 ```markdown
 # Travel Planner
 
